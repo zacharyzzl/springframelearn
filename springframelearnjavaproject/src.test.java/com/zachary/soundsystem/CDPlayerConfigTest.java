@@ -1,7 +1,5 @@
 package com.zachary.soundsystem;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +23,12 @@ public class CDPlayerConfigTest {
 
 	@Test
 	public void cdShouldNotBeNullTest() {
+//		AbstractApplicationContext context = new FileSystemXmlApplicationContext("classpath*:cd-config.xml");// 获得上下文
+//		CompactDisc sgtPeppers = context.getBean(CompactDisc.class);// 从上下文中获得bean
+//		sgtPeppers.play();
+//		context.close();
 		sgtPeppers.play();
 		cd.play();
-		assertNotNull(sgtPeppers);
-		assertNotNull(cd);
 	}
 
 }
