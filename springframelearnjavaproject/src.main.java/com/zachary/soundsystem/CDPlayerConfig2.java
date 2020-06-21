@@ -1,15 +1,20 @@
+/**
+ * 
+ */
 package com.zachary.soundsystem;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import com.zachary.soundsystemtwo.Jay;
+
 /**
  * @author Zachary.Zheng
  * @version 1.0
- * @date 2020年6月20日 下午9:41:29
+ * @date 2020年6月21日 下午3:03:00
  */
 @Configuration
-@ComponentScan(basePackages={"com.zachary.soundsystem","com.zachary.soundsystemtwo"})
-public class CDPlayerConfig {
+@ComponentScan(basePackageClasses = {SgtPeppers.class, Jay.class})
+public class CDPlayerConfig2 {
 
 }

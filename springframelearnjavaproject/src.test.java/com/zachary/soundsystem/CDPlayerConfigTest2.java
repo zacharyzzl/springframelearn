@@ -17,8 +17,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @date 2020年6月20日 下午9:47:04
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes=CDPlayerConfig.class)
-public class CDPlayerConfigTest {
+@ContextConfiguration(classes=CDPlayerConfig2.class)
+public class CDPlayerConfigTest2 {
 	
 	@Autowired
 	@Qualifier("sgtPeppers")
