@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @date 2020年6月20日 下午9:47:04
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = CDPlayerConfig.class)
+@ContextConfiguration(locations = "classpath:cd-config.xml")
 public class CDPlayerConfigTest {
 
 	@Autowired
