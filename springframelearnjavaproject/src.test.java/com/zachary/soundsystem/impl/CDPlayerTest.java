@@ -27,15 +27,16 @@ public class CDPlayerTest {
 	@Rule
 	public final StandardOutputStreamLog log = new StandardOutputStreamLog();
 
-	@Autowired(required = false)
+	@Autowired
 	private MediaPlayer player;
 
-	@Autowired(required = false)
+	@Autowired
 	private CompactDisc cd;
 
 	@Test
 	public void cdShouldNotBeNull() {
 		cd.play();
+		player.play();
 		assertNotNull(cd);
 	}
 

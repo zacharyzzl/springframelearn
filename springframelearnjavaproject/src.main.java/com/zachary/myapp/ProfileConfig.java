@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Profile;
@@ -19,12 +20,34 @@ import com.zachary.soundsystem.impl.BlankDisc;
 * @date 2020年6月26日  
 */
 @Configuration
-//@Import({DevelopmentProfileConfig.class, ProductionProfileConfig.class})
+@Import({DevelopmentProfileConfig.class, ProductionProfileConfig.class})
 public class ProfileConfig {
 	
+//	@Bean("blankDisc")
+//	@Profile("dev")
+//	public BlankDisc getDevBlankDisc() {
+//		BlankDisc blankDisc = new BlankDisc();
+//		blankDisc.setTitle("Sgt. Pepper's Lonely Hearts Club Band prod");
+//		List<String> tracks = new ArrayList<>();
+//		tracks.add("Sgt. Pepper's Lonely Hearts Club Band track prod");
+//		blankDisc.setTracks(tracks);
+//		return blankDisc;
+//	}
+//	
+//	@Bean("blankDisc")
+//	@Profile("prod")
+//	public BlankDisc getProdBlankDisc() {
+//		BlankDisc blankDisc = new BlankDisc();
+//		blankDisc.setTitle("Sgt. Pepper's Lonely Hearts Club Band prod");
+//		List<String> tracks = new ArrayList<>();
+//		tracks.add("Sgt. Pepper's Lonely Hearts Club Band track prod");
+//		blankDisc.setTracks(tracks);
+//		return blankDisc;
+//	}
+	
 	@Bean("blankDisc")
-	@Profile("dev")
-	public BlankDisc getDevBlankDisc() {
+	@Conditional(ProfileCondition.class)
+	public BlankDisc getBlankDiscByProfileCondition() {
 		BlankDisc blankDisc = new BlankDisc();
 		blankDisc.setTitle("Sgt. Pepper's Lonely Hearts Club Band prod");
 		List<String> tracks = new ArrayList<>();
@@ -34,12 +57,12 @@ public class ProfileConfig {
 	}
 	
 	@Bean("blankDisc")
-	@Profile("prod")
-	public BlankDisc getProdBlankDisc() {
+	@Conditional(MagicExistsCondition.class)
+	public BlankDisc getBlankDiscByMagicExistsCondition() {
 		BlankDisc blankDisc = new BlankDisc();
-		blankDisc.setTitle("Sgt. Pepper's Lonely Hearts Club Band prod");
+		blankDisc.setTitle("Sgt. Pepper's Lonely Hearts Club Band magic");
 		List<String> tracks = new ArrayList<>();
-		tracks.add("Sgt. Pepper's Lonely Hearts Club Band track prod");
+		tracks.add("Sgt. Pepper's Lonely Hearts Club Band track magic");
 		blankDisc.setTracks(tracks);
 		return blankDisc;
 	}

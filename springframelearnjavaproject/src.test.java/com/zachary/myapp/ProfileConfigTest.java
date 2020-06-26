@@ -19,7 +19,7 @@ import com.zachary.soundsystem.impl.BlankDisc;
 */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = ProfileConfig.class)
-@ActiveProfiles("prod")
+@ActiveProfiles("magic")
 public class ProfileConfigTest {
 
 	@Autowired
