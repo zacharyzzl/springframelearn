@@ -25,7 +25,7 @@ public class ProductionProfileConfig {
 	public BlankDisc getBlankDisc() {
 		BlankDisc blankDisc = new BlankDisc();
 		blankDisc.setTitle("Sgt. Pepper's Lonely Hearts Club Band prod");
-		List<String> tracks = new ArrayList<>();
+		List<Object> tracks = new ArrayList<>();
 		tracks.add("Sgt. Pepper's Lonely Hearts Club Band track prod");
 		blankDisc.setTracks(tracks);
 		return blankDisc;

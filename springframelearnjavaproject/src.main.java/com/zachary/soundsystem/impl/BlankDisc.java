@@ -11,15 +11,24 @@ import com.zachary.soundsystem.CompactDisc;
  */
 public class BlankDisc implements CompactDisc {
 
-	private String title;
-	private String artist;
-	private List<String> tracks;
+	public String title;
+	public String artist;
+	public List<Object> tracks;
+
+	public BlankDisc(String title, String artist, List<Object> tracks) {
+		this.title = title;
+		this.artist = artist;
+		this.tracks = tracks;
+	}
+
+	public BlankDisc() {
+	}
 
 	public void setTitle(String title) {
 		this.title = title;
 	}
 
-	public void setTracks(List<String> tracks) {
+	public void setTracks(List<Object> tracks) {
 		this.tracks = tracks;
 	}
 
@@ -30,8 +39,8 @@ public class BlankDisc implements CompactDisc {
 	@Override
 	public void play() {
 		System.out.println("Playing " + title + " by " + artist);
-		for (String track : tracks) {
-			System.out.println("-Tracks" + track);
+		for (Object track : tracks) {
+			System.out.println("-Tracks" + " : " + track);
 		}
 	}
 }

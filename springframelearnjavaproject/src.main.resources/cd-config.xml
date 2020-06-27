@@ -11,10 +11,47 @@
         https://www.springframework.org/schema/util/spring-util.xsd
         http://www.springframework.org/schema/context
 		https://www.springframework.org/schema/context/spring-context.xsd">
-
-	<!-- <bean id="blankDisc" class="com.zachary.soundsystem.impl.BlankDisc"> 
-		<constructor-arg value="Sgt. Pepper's Lonely Hearts Club Band" /> <constructor-arg 
-		value="The Beatles"/> </bean> -->
+		
+ 	<!-- 加载外部的properties配置文件 -->
+    <context:property-placeholder location="classpath:app.properties" system-properties-mode="FALLBACK" />
+    
+	<bean id="blankDisc2" class="com.zachary.soundsystem.impl.BlankDisc"> 
+		<constructor-arg value="Sgt. Pepper's Lonely Hearts Club Band2" /> 
+		<constructor-arg value="The Beatles2"/> 
+		<constructor-arg>
+			<list>
+				<value>#{T(System).currentTimeMillis()}</value>
+				<value>#{3.14159}</value>
+				<value>#{9.87E4}</value>
+				<value>#{'test2'}</value>
+			</list>
+		</constructor-arg> 
+	</bean>
+	
+	<bean id="blankDisc3" class="com.zachary.soundsystem.impl.BlankDisc"> 
+		<constructor-arg value="Sgt. Pepper's Lonely Hearts Club Band3" /> 
+		<constructor-arg value="The Beatles3"/> 
+		<constructor-arg>
+			<list>
+				<value>#{T(System).currentTimeMillis()}</value>
+				<value>#{3.14159}</value>
+				<value>#{9.87E4}</value>
+				<value>#{'test'}</value>
+			</list>
+		</constructor-arg> 
+	</bean>
+	<bean id="blankDisc4" class="com.zachary.soundsystem.impl.BlankDisc"> 
+		<constructor-arg value="Sgt. Pepper's Lonely Hearts Club Band4" /> 
+		<constructor-arg value="The Beatles2"/> 
+		<constructor-arg>
+			<list>
+				<value>#{T(System).currentTimeMillis()}</value>
+				<value>#{3.14159}</value>
+				<value>#{9.87E4}</value>
+				<value>#{'test4'}</value>
+			</list>
+		</constructor-arg> 
+	</bean>
 
 	<!-- <bean id="blankDisc" class="com.zachary.soundsystem.impl.BlankDisc" 
 		c:title="Sgt. Pepper's Lonely Hearts Club Band" c:artist="The Beatles" /> -->
@@ -27,23 +64,60 @@
 
 	<!-- <bean id="blankDisc" class="com.zachary.soundsystem.impl.BlankDisc"> 
 		<property name="title" value="Sgt. Pepper's Lonely Hearts Club Band" /> </bean> -->
-	<context:property-placeholder/>
 	
 	<util:list id="trackList">
-		<value>Sgt. Pepper's Lonely Hearts Club Band</value>
-		<value>Sgt. Pepper's Lonely Hearts Club Band2</value>
-		<value>Sgt. Pepper's Lonely Hearts Club Band3</value>
-		<value>Sgt. Pepper's Lonely Hearts Club Band4</value>
+		<value>#{T(System).currentTimeMillis()}</value>
+		<value>#{3.14159}</value>
+		<value>#{9.87E4}</value>
+		<value>#{'Hello'}</value>
+		<value>#{false}</value>
+		<value>#{blankDisc2.title}</value>
+		<value>#{systemProperties['disc.title']}</value>
+		<value>${disc.title}</value>
+		<value>#{blankDisc2}</value>
+		<value>#{blankDisc2.toString()}</value>
+		<value>#{blankDisc2.toString().toUpperCase()}</value>
+		<value>#{blankDisc2.toString()?.toUpperCase()}</value>
+		<value>#{T(java.lang.Math)}</value>
+		<value>#{T(java.lang.Math).PI}</value>
+		<value>#{T(java.lang.Math).random()}</value>
+		<value>#{T(java.lang.Math).random() * 2}</value>
+		<value>#{2^2}</value>
+		<value>#{2 + 2}</value>
+		<value>#{2 + 2 + 'm'}</value>
+		<value>#{'=' + 2 + 2 + 'm'}</value>
+		<value>#{2 == 2}</value>
+		<value>#{2 eq 2}</value>
+		<value>#{2 eq 2 ? 1 : 2}</value>
+		<value>#{systemProperties['disc.title'] ?: 'Default'}</value>
+		<value>#{'1234567' matches '[0-9]+'}</value>
+		<value>#{blankDisc2.tracks[0]}</value>
+		<value>#{blankDisc2.tracks.size()}</value>
+		<value>#{cdPlayer.cds.?[artist eq 'The Beatles2']}</value>
+		<value>#{cdPlayer.cds.?[artist eq 'The Beatles2'].size()}</value>
+		<value>#{cdPlayer.cds.?[artist eq 'The Beatles2'].![title]}</value>
+		<value>#{cdPlayer.cds.^[artist eq 'The Beatles2']}</value>
+		<value>#{cdPlayer.cds.$[artist eq 'The Beatles2']}</value>
 	</util:list>
 	
 	<bean id="blankDisc"
+		primary="true"
 		class="com.zachary.soundsystem.impl.BlankDisc"
 		p:title="${disc.title}"
 		p:artist="${disc.artist}"
 		p:tracks-ref="trackList" />
 		
+	<util:list id="blankDiscs">
+		<ref bean="blankDisc2" />
+		<ref bean="blankDisc2"/>
+		<ref bean="blankDisc2"/>
+		<ref bean="blankDisc3"/>
+		<ref bean="blankDisc3"/>
+		<ref bean="blankDisc4"/>
+	</util:list>
+	
 	<bean id="cdPlayer"
 		class="com.zachary.soundsystem.impl.CDPlayer"
-		c:_-ref="blankDisc"
-		/>
+		c:cd-ref="blankDisc2"
+		c:cds-ref="blankDiscs" />
 </beans>

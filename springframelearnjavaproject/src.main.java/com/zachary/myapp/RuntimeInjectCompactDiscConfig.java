@@ -1,17 +1,9 @@
 package com.zachary.myapp;
 
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
-
-import com.zachary.soundsystem.impl.BlankDisc;
 
 /**
  * @author Zachary.Zheng
@@ -19,7 +11,7 @@ import com.zachary.soundsystem.impl.BlankDisc;
  * @date 2020年6月27日
  */
 @Configuration
-@PropertySource("classpath:app.properties")
+//@PropertySource("classpath:app.properties")
 @ImportResource("classpath:cd-config.xml")
 public class RuntimeInjectCompactDiscConfig {
 

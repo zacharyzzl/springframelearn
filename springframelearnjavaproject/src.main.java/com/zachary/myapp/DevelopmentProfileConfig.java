@@ -22,7 +22,7 @@ public class DevelopmentProfileConfig {
 	public BlankDisc getBlankDisc() {
 		BlankDisc blankDisc = new BlankDisc();
 		blankDisc.setTitle("Sgt. Pepper's Lonely Hearts Club Band dev");
-		List<String> tracks = new ArrayList<>();
+		List<Object> tracks = new ArrayList<>();
 		tracks.add("Sgt. Pepper's Lonely Hearts Club Band track dev");
 		blankDisc.setTracks(tracks);
 		return blankDisc;

@@ -31,7 +31,7 @@ public class ProfileConfig {
 	public BlankDisc getDevBlankDiscPrimary() {
 		BlankDisc blankDisc = new BlankDisc();
 		blankDisc.setTitle("Sgt. Pepper's Lonely Hearts Club Band dev Primary");
-		List<String> tracks = new ArrayList<>();
+		List<Object> tracks = new ArrayList<>();
 		tracks.add("Sgt. Pepper's Lonely Hearts Club Band track dev Primary");
 		blankDisc.setTracks(tracks);
 		return blankDisc;
@@ -42,7 +42,7 @@ public class ProfileConfig {
 	public BlankDisc getDevBlankDiscQualifier() {
 		BlankDisc blankDisc = new BlankDisc();
 		blankDisc.setTitle("Sgt. Pepper's Lonely Hearts Club Band dev Qualifier");
-		List<String> tracks = new ArrayList<>();
+		List<Object> tracks = new ArrayList<>();
 		tracks.add("Sgt. Pepper's Lonely Hearts Club Band track dev Qualifier");
 		blankDisc.setTracks(tracks);
 		return blankDisc;
@@ -54,7 +54,7 @@ public class ProfileConfig {
 	public BlankDisc getDevBlankDiscCreamyCold() {
 		BlankDisc blankDisc = new BlankDisc();
 		blankDisc.setTitle("Sgt. Pepper's Lonely Hearts Club Band dev Cold+Creamy");
-		List<String> tracks = new ArrayList<>();
+		List<Object> tracks = new ArrayList<>();
 		tracks.add("Sgt. Pepper's Lonely Hearts Club Band track dev Cold+Creamy");
 		blankDisc.setTracks(tracks);
 		return blankDisc;
@@ -65,7 +65,7 @@ public class ProfileConfig {
 	public BlankDisc getProdBlankDisc() {
 		BlankDisc blankDisc = new BlankDisc();
 		blankDisc.setTitle("Sgt. Pepper's Lonely Hearts Club Band prod");
-		List<String> tracks = new ArrayList<>();
+		List<Object> tracks = new ArrayList<>();
 		tracks.add("Sgt. Pepper's Lonely Hearts Club Band track prod");
 		blankDisc.setTracks(tracks);
 		return blankDisc;
@@ -76,7 +76,7 @@ public class ProfileConfig {
 	public BlankDisc getBlankDiscByProfileCondition() {
 		BlankDisc blankDisc = new BlankDisc();
 		blankDisc.setTitle("Sgt. Pepper's Lonely Hearts Club Band prod");
-		List<String> tracks = new ArrayList<>();
+		List<Object> tracks = new ArrayList<>();
 		tracks.add("Sgt. Pepper's Lonely Hearts Club Band track prod");
 		blankDisc.setTracks(tracks);
 		return blankDisc;
@@ -87,7 +87,7 @@ public class ProfileConfig {
 	public BlankDisc getBlankDiscByMagicExistsCondition() {
 		BlankDisc blankDisc = new BlankDisc();
 		blankDisc.setTitle("Sgt. Pepper's Lonely Hearts Club Band magic");
-		List<String> tracks = new ArrayList<>();
+		List<Object> tracks = new ArrayList<>();
 		tracks.add("Sgt. Pepper's Lonely Hearts Club Band track magic");
 		blankDisc.setTracks(tracks);
 		return blankDisc;

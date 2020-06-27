@@ -1,5 +1,7 @@
 package com.zachary.soundsystem.impl;
 
+import java.util.List;
+
 import com.zachary.soundsystem.CompactDisc;
 import com.zachary.soundsystem.MediaPlayer;
 
@@ -10,9 +12,11 @@ import com.zachary.soundsystem.MediaPlayer;
  */
 public class CDPlayer implements MediaPlayer {
 	private CompactDisc cd;
+	public List<CompactDisc> cds;
 
-	public CDPlayer(CompactDisc cd) {
+	public CDPlayer(CompactDisc cd, List<CompactDisc> cds) {
 		this.cd = cd;
+		this.cds = cds;
 	}
 
 	@Override
@@ -22,5 +26,10 @@ public class CDPlayer implements MediaPlayer {
 
 	public void setCd(CompactDisc cd) {
 		this.cd = cd;
+	}
+
+	@Override
+	public String toString() {
+		return "CDPlayer [cd=" + cd + ", cds=" + cds + "]";
 	}
 }
