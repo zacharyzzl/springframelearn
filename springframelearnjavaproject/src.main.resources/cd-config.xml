@@ -3,11 +3,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:c="http://www.springframework.org/schema/c"
 	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd 
         http://www.springframework.org/schema/util 
-        https://www.springframework.org/schema/util/spring-util.xsd">
+        https://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/context
+		https://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- <bean id="blankDisc" class="com.zachary.soundsystem.impl.BlankDisc"> 
 		<constructor-arg value="Sgt. Pepper's Lonely Hearts Club Band" /> <constructor-arg 
@@ -24,6 +27,7 @@
 
 	<!-- <bean id="blankDisc" class="com.zachary.soundsystem.impl.BlankDisc"> 
 		<property name="title" value="Sgt. Pepper's Lonely Hearts Club Band" /> </bean> -->
+	<context:property-placeholder/>
 	
 	<util:list id="trackList">
 		<value>Sgt. Pepper's Lonely Hearts Club Band</value>
@@ -34,7 +38,8 @@
 	
 	<bean id="blankDisc"
 		class="com.zachary.soundsystem.impl.BlankDisc"
-		p:title="Sgt. Pepper's Lonely Hearts Club Band"
+		p:title="${disc.title}"
+		p:artist="${disc.artist}"
 		p:tracks-ref="trackList" />
 		
 	<bean id="cdPlayer"

@@ -12,7 +12,7 @@ import com.zachary.soundsystem.CompactDisc;
 public class BlankDisc implements CompactDisc {
 
 	private String title;
-	private String artist = "The Beatles";
+	private String artist;
 	private List<String> tracks;
 
 	public void setTitle(String title) {
@@ -21,6 +21,10 @@ public class BlankDisc implements CompactDisc {
 
 	public void setTracks(List<String> tracks) {
 		this.tracks = tracks;
+	}
+
+	public void setArtist(String artist) {
+		this.artist = artist;
 	}
 
 	@Override
