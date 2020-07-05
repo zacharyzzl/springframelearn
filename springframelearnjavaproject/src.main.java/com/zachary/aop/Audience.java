@@ -7,6 +7,7 @@ import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 
 /**  
 * @author Zachary.Zheng 
@@ -15,22 +16,25 @@ import org.aspectj.lang.annotation.Before;
 */
 @Aspect
 public class Audience {
-	@Before("execution(* com.zachary.aop.Performance.perform(..))")
+	@Pointcut("execution(* com.zachary.aop.Performance.perform(..))")
+	public void performance() {};
+	
+	@Before("performance()")
 	public void silenceCellPhones() {
 		System.out.println("Sliencing cell phones");
 	}
 	
-	@Before("execution(* com.zachary.aop.Performance.perform(..))")
+	@Before("performance()")
 	public void takeSeats() {
 		System.out.println("Taking seats");
 	}
 	
-	@AfterReturning("execution(* com.zachary.aop.Performance.perform(..))")
+	@AfterReturning("performance()")
 	public void applause() {
 		System.out.println("CLAP CLAP CLAP!!!");
 	}
 	
-	@AfterThrowing("execution(* com.zachary.aop.Performance.perform(..))")
+	@AfterThrowing("performance()")
 	public void demandRefund() {
 		System.out.println("Demand a refund");
 	}

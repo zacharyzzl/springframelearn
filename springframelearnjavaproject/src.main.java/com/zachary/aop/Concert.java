@@ -16,6 +16,7 @@ public class Concert implements Performance {
 	@Override
 	public void perform() {
 		System.out.println("表演中。。。");
+//		int i = 1/0;
 	}
 
 }
