@@ -15,7 +15,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 * @date 2020年6月28日  下午11:55:37
 */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = ConcertConfig.class)
+//@ContextConfiguration(classes = ConcertConfig.class)
+@ContextConfiguration(locations = "classpath:aop-config.xml")
 public class ConcertConfigTest {
 
 	/*Spring 有两种代理动态代理模式，一种是基于接口的JDK动态地理，一种是基于类的CGLibs动态代理，Spring默认是使用JDK动态代理的，所以要么使用JDK动态代理，要么使用CGLibs实现动态代理。
