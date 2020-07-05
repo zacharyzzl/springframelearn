@@ -32,7 +32,7 @@ public class ConcertConfigTest {
 	
 	@Test
 	public void test() {
-		concert.preform();
+		concert.perform();
 	}
 
 }
