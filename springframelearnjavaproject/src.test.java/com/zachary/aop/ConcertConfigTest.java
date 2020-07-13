@@ -6,8 +6,12 @@ package com.zachary.aop;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.sun.xml.internal.bind.CycleRecoverable.Context;
 
 /**  
 * @author Zachary.Zheng 
@@ -31,13 +35,17 @@ public class ConcertConfigTest {
 	@Autowired
 	private Performance concert;
 	
+//	@Autowired
+//	private Encoreable encoreableIntroducer;
+	
 	@Test
 	public void test() {
+//		AbstractApplicationContext context = new FileSystemXmlApplicationContext("classpath:aop-config.xml");
+//		Performance concert = (Performance) context.getBean("concert");
+		Encoreable defaultEncoreable = (Encoreable) concert;
 		concert.perform("perform1");
-		concert.perform("perform2");
-		concert.perform("perform3");
-		concert.perform("perform4");
-		concert.perform("perform5");
+		defaultEncoreable.performEncore();
+//		context.close();
 	}
 
 }

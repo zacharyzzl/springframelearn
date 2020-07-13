@@ -12,6 +12,7 @@
 	
 	<context:component-scan base-package="com.zachary.aop"/>
 	
-	<aop:aspectj-autoproxy />
+	<bean id="encoreableIntroducer" class="com.zachary.aop.EncoreableIntroducer" />
 	
+	<aop:aspectj-autoproxy />
 </beans>
