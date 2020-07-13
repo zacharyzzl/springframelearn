@@ -33,7 +33,11 @@ public class ConcertConfigTest {
 	
 	@Test
 	public void test() {
-		concert.perform();
+		concert.perform("perform1");
+		concert.perform("perform2");
+		concert.perform("perform3");
+		concert.perform("perform4");
+		concert.perform("perform5");
 	}
 
 }

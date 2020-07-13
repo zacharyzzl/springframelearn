@@ -15,12 +15,13 @@ import org.aspectj.lang.annotation.Pointcut;
 */
 @Aspect
 public class Audience {
-	@Pointcut("execution(* com.zachary.aop.Performance.perform(..))")
-	public void performance() {};
+	@Pointcut("execution(* com.zachary.aop.Performance.perform(String)) && args(performContent)")
+	public void performance(String performContent) {};
 	
-	@Around("performance()")
-	public void watchPerformance(ProceedingJoinPoint jp) {
+	@Around("performance(performContent)")
+	public void watchPerformance(ProceedingJoinPoint jp, String performContent) {
 		try {
+			System.out.println(performContent);
 			System.out.println("Sliencing cell phones");
 			System.out.println("Taking seats");
 			jp.proceed();
