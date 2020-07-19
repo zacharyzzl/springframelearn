@@ -46,6 +46,8 @@ public class ConcertConfigTest {
 //		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConcertConfig.class);
 //		Performance concert = (Performance) context.getBean("concert");
 		concert.perform("perform1");
+		Encoreable encoreable = (Encoreable) concert;
+		encoreable.performEncore();
 //		context.close();
 	}
 

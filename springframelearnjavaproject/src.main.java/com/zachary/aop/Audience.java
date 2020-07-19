@@ -18,9 +18,10 @@ public class Audience {
 		System.out.println("Sliencing cell phones");
 	}
 	
-	public void watchPerformance(ProceedingJoinPoint jp) {
+	public void watchPerformance(ProceedingJoinPoint jp, String performContent) {
 		try {
 			System.out.println("Taking seats");
+			System.out.println(performContent);
 			jp.proceed();
 			System.out.println("CLAP CLAP CLAP!!!");
 		} catch (Throwable e) {

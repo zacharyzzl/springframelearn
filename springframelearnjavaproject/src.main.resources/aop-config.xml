@@ -12,8 +12,7 @@
 	
 	<context:component-scan base-package="com.zachary.aop"/>
 	
-	<bean id="audience" class="com.zachary.aop.Audience"/>
-	<bean id="concert" class="com.zachary.aop.Concert"/>
+	<bean id="defaultEncoreable" class="com.zachary.aop.DefaultEncoreable"/>
 	<aop:config>
 		<!-- <aop:around pointcut="execution(com.zachary.aop.Performance.perform(..))" method="watchPerformance"/> -->
 		<aop:pointcut id="performance"
@@ -24,10 +23,14 @@
 				pointcut-ref="performance"
 				method="sliencingPhones"/>
 			
-          <!--   <aop:around 
-            	pointcut="execution(* com.zachary.aop.Performance.perform(..))"
-                method="watchPerformance"/> -->
-                
+          	<aop:around 
+            	pointcut-ref="performance"
+                method="watchPerformance"/>
+            
+            <aop:declare-parents 
+            types-matching="com.zachary.aop.Concert" 
+            implement-interface="com.zachary.aop.Encoreable"
+            delegate-ref="defaultEncoreable" />
 		</aop:aspect>
 	</aop:config>
 	
