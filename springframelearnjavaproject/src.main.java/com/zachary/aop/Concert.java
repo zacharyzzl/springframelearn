@@ -12,10 +12,8 @@ import org.springframework.stereotype.Component;
 */
 @Component
 public class Concert implements Performance {
-
 	@Override
 	public void perform(String performContent) {
 		System.out.println(performContent + "表演中。。。");
 	}
-
 }

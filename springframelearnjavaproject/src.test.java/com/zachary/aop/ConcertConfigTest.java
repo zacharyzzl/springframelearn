@@ -33,8 +33,8 @@ public class ConcertConfigTest {
 	  2、使用基于类的CGLIBS动态代理：在配置文件中添加
 	  　　<aop:aspectj-autoproxy proxy-target-class="true"/>强制使用类代理模式。
 	 */
-//	@Autowired
-//	private Performance concert;
+	@Autowired
+	private Performance concert;
 	
 //	@Autowired
 //	private Encoreable encoreableIntroducer;
@@ -43,12 +43,10 @@ public class ConcertConfigTest {
 	public void test() {
 //		AbstractApplicationContext context = new FileSystemXmlApplicationContext("classpath:aop-config.xml");
 //		Performance concert = (Performance) context.getBean("concert");
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConcertConfig.class);
-		Performance concert = (Performance) context.getBean("concert");
-		Encoreable defaultEncoreable = (Encoreable) concert;
+//		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConcertConfig.class);
+//		Performance concert = (Performance) context.getBean("concert");
 		concert.perform("perform1");
-		defaultEncoreable.performEncore();
-		context.close();
+//		context.close();
 	}
 
 }

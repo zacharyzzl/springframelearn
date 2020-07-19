@@ -12,7 +12,24 @@
 	
 	<context:component-scan base-package="com.zachary.aop"/>
 	
-	<bean id="encoreableIntroducer" class="com.zachary.aop.EncoreableIntroducer" />
+	<bean id="audience" class="com.zachary.aop.Audience"/>
+	<bean id="concert" class="com.zachary.aop.Concert"/>
+	<aop:config>
+		<!-- <aop:around pointcut="execution(com.zachary.aop.Performance.perform(..))" method="watchPerformance"/> -->
+		<aop:pointcut id="performance"
+               expression="execution(* com.zachary.aop.Performance.perform(..)) &amp;&amp; args(performContent)" />
+		<aop:aspect ref="audience">
+			
+			<aop:before 
+				pointcut-ref="performance"
+				method="sliencingPhones"/>
+			
+          <!--   <aop:around 
+            	pointcut="execution(* com.zachary.aop.Performance.perform(..))"
+                method="watchPerformance"/> -->
+                
+		</aop:aspect>
+	</aop:config>
 	
 	<aop:aspectj-autoproxy />
 </beans>
