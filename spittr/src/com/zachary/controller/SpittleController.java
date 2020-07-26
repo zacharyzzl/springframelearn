@@ -11,12 +11,17 @@ import com.zachary.data.SpittleRepository;
 @Controller
 @RequestMapping("/spittles")
 public class SpittleController {
-	@Autowired
+	
 	private SpittleRepository spittleRepository;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String spittles(Model model) {
 		model.addAttribute("spittleList", spittleRepository.findSpittles(100, 20));
 		return "spittles";
+	}
+	@Autowired
+	public SpittleController(SpittleRepository spittleRepository) {
+		super();
+		this.spittleRepository = spittleRepository;
 	}
 }
